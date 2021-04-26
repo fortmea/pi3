@@ -2,7 +2,6 @@
 require_once("config.php");
 $metodo = $_SERVER["REQUEST_METHOD"];
 if ($metodo == "POST") {
-    //$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
     if (!isset($_POST["imagem"])) {
         echo ("uai");
         if ($_FILES["imagem"]["error"] > 0) {
@@ -16,10 +15,8 @@ if ($metodo == "POST") {
             $tipofilme = $_POST['tipo'];
             $bin_string = file_get_contents($_FILES["imagem"]["name"]);
             $hex_string = base64_encode($bin_string);
-            echo("<br>".$hex_string);
             $tipo = $_FILES["imagem"]["type"];
             $base64 = "data:$tipo;base64,$hex_string";
-            print_r($_POST);
             $query = 'INSERT INTO `filme`(`nome`,`sinopse`,`lancamento`,`genero`,`imagem`,`tipo`) VALUES(?, ?, ?, ?, ?, ?)';
             $exec = $conn->prepare($query);
             $exec->bindParam(1, $nome);
@@ -30,13 +27,6 @@ if ($metodo == "POST") {
             $exec->bindParam(6, $tipofilme);
             $exec->execute();
             $id = $conn->lastInsertId();
-            /*echo($id);
-            print_r($conn->errorInfo());
-            for($x =0; $x < count($conn->errorInfo());$x++){
-                echo($conn->errorInfo()[$x]);
-            }
-            echo($conn->errorInfo()[1]);
-            exit();*/
             for ($x = 0; $x < count($_POST['estudios']); $x++) {
                 $query_estudio = "INSERT INTO `filme_estudio` VALUES(:id_filme, :id_estudio)";
                 $instestudio = $conn->prepare($query_estudio);

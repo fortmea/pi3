@@ -8,3 +8,6 @@
 .vertical{
     margin-top: 1em;
 }
+.card-lista{
+    max-width: 80em;
+}
