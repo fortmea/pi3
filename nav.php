@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Início</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Início</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -18,16 +18,16 @@
             <li><a class="dropdown-item" href="filmes.php">Filmes</a></li>
             <li><a class="dropdown-item" href="series.php">Séries</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="tudo.php">Lista completa</a></li>
+            <li><a class="dropdown-item" href="lista.php">Lista completa</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.php?#sobre">Sobre</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
+      <form class="d-flex" action="pesquisa.php">
+        <input class="form-control me-2" type="search" placeholder="Pesquisa" name="k" aria-label="Pesquisa">
+        <button class="btn btn-outline-light" type="submit">Pesquisa</button>
       </form>
     </div>
   </div>

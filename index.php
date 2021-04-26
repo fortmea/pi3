@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="resources/style.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>moview</title>
 </head>
@@ -21,8 +21,11 @@ require("nav.php");
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="resources/invocacao2.png" class="d-block w-100 " alt="Logomarca da empresa">
+    <a href="bruh.php">
+      <img src="resources/invocacao2.png" class="d-block w-100 " alt="">
+      </a>
     </div>
+    
     <div class="carousel-item">
     <img src="resources/naruto.png" class="d-block w-100" alt="Logomarca da empresa">
 
@@ -42,7 +45,7 @@ require("nav.php");
   </button>
 </div>
 </div>
-<div class="card centralizado border-primary" id="sobre" style="width:50rem;margin-top:1em">
+<div class="card centralizado border-primary" id="sobre" style="max-width:100rem;margin-top:1em">
   <div class="card-body bg-dark ">
     <h5 class="card-title">Sobre o projeto moview</h5>
     <h6 class="card-subtitle mb-2 text-muted">O projeto moview surgiu porque o professor pediu</h6>
