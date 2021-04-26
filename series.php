@@ -21,12 +21,12 @@
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
         while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) { ?>
-            <div class="card bg-dark border-primary ">
+            <div class="card bg-dark border-primary mb-3">
                 <div class="card-header bg-dark">
                     <h5><?= $linha->nome ?></h5>
                 </div>
                 <div class="card-body bg-dark">
-                    <div class="mb-3">
+                    <div>
                         <img src=<?= $linha->imagem ?>>
                         <p>
                         <h6><?= $linha->sinopse ?></h6>
