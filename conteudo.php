@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
-require_once("configuracao.php");
+require_once("config.php");
 ?>
 <head>
     <meta charset="UTF-8">
