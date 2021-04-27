@@ -21,7 +21,7 @@ require_once("config.php");
         <?php include_once("nav.php"); ?>
         <?php
         $recebeid = $_GET['id'];
-        $querybuscafilme = "SELECT f.nome nom, f.sinopse si, f.lancamento lan, f.imagem, g.`desc` gen From filme f inner join genero_filme g ON f.genero = g.idgenero_filme where id=$recebeid";
+        $querybuscafilme = "SELECT f.nome nom, f.sinopse si, f.lancamento lan, f.imagem, g.`desc` gen, f.tipo ti , e.nome est From filme f inner join genero_filme g ON f.genero = g.idgenero_filme INNER JOIN filme_estudio fe ON fe.filme_id = f.id INNER JOIN estudio e ON fe.estudio_id = e.idestudio where id=$recebeid";
         $exe = $conn->prepare($querybuscafilme);
         $exe->execute();
 
@@ -36,9 +36,19 @@ require_once("config.php");
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Filme: <?= $linha->nom ?></h5>
-                                <p class="card-text">Sinopse: <?= $linha->si ?></p>
+                                <h5 class="card-title"><?= $linha->nom ?></h5>
+                                <p class="card-text"> <?= $linha->si ?></p>
                                 <p class="card-text">Data de Lançamento: <?= $linha->lan ?></p>
+                                <p class="card-text">Gênero: <?= $linha->gen ?></p>
+                                <p class="card-text"><?php
+                                    if($linha->ti == 1){
+                                        echo 'Tipo: Filme';
+                                    }else{
+                                        echo 'Tipo: Série';
+                                    }
+                                
+                                ?> </p>
+                                <p class="card-text">Estudio: <?= $linha->est ?></p>
                                 <p class="card-text">Gênero: <?= $linha->gen ?></p>
                             </div>
                         </div>
