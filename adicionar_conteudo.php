@@ -14,12 +14,12 @@ if ($metodo == "POST") {
             $lancamento = $_POST['lancamento'];
             $genero = $_POST['genero'];
             $tipofilme = $_POST['tipo'];
-            move_uploaded_file($_FILES["imagem"]["tmp_name"], "uploads/" . $_FILES["imagem"]["name"]);
-            $bin_string = file_get_contents("uploads/" . $_FILES["imagem"]["name"]);
+            move_uploaded_file($_FILES["imagem"]["tmp_name"],  $_SERVER["DOCUMENT_ROOT"]."/uploads/" . $_FILES["imagem"]["name"]);
+            $bin_string = file_get_contents( $_SERVER["DOCUMENT_ROOT"]."/uploads/" . $_FILES["imagem"]["name"]);
             $hex_string = base64_encode($bin_string);
             $tipo = $_FILES["imagem"]["type"];
             $base64 = "data:$tipo;base64,$hex_string";
-            unlink("uploads/" . $_FILES["imagem"]["name"]);
+            unlink( $_SERVER["DOCUMENT_ROOT"]."/uploads/" . $_FILES["imagem"]["name"]);
             $query = 'INSERT INTO `filme`(`nome`,`sinopse`,`lancamento`,`genero`,`imagem`,`tipo`) VALUES(?, ?, ?, ?, ?, ?)';
             $exec = $conn->prepare($query);
             $exec->bindParam(1, $nome);
