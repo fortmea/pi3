@@ -1,5 +1,5 @@
 <?php
-if(!isset($_GET["k"])){
+if (!isset($_GET["k"])) {
     header("Location: lista.php");
 }
 ?>
@@ -12,7 +12,7 @@ if(!isset($_GET["k"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="resources/css/style.css" rel="stylesheet">
-    <title>Pesquisando por "<?=$_GET["k"]?>"</title>
+    <title>Pesquisando por "<?= $_GET["k"] ?>"</title>
 </head>
 
 <body class="bg-dark text-light">
@@ -22,12 +22,16 @@ if(!isset($_GET["k"])){
     <div class="container-fluid card-lista vertical">
         <?php
         require_once("config.php");
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $termo_pesquisa = $_GET['k'];
         $queryfilme = "SELECT * FROM `filme` where `filme`.`nome` like '$termo_pesquisa%'";
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
-        while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) { ?>
+        $conta = 0;
+
+        while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) {
+            $conta++;
+        ?>
             <div class="card bg-dark border-primary mb-3">
 
                 <div class="card-body bg-dark">
@@ -55,7 +59,13 @@ if(!isset($_GET["k"])){
                 </div>
             </div>
         <?php
-        }
+            }
+            if ($conta == 0) {
+                ?>
+                    <div class="alert alert-warning">
+                        Nenhuma resposta encontrada, tente outro termo.
+                    </div>
+        <?php }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
