@@ -22,20 +22,29 @@
         $execqg->execute();
         while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) { ?>
             <div class="card bg-dark border-primary mb-3">
-                <div class="card-header bg-dark bg-gradient">
-                    <h5><?= $linha->nome ?></h5>
-                </div>
+
                 <div class="card-body bg-dark">
                     <div>
-                        <img src=<?= $linha->imagem ?> class="img-thumbnail foto">
-                        <p>
-                        <h6><?= $linha->sinopse ?></h6>
-                        </p>
-                        <h6>Data de lançamento: <?=$linha->lancamento?></h6>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src=<?= $linha->imagem ?> class="img-thumbnail foto">
+
+                            </div>
+                            <div class="col-md-8">
+                                <p>
+                                <h1><?= $linha->nome ?></h1>
+                                </p>
+                                <p>
+                                <h6><?= $linha->sinopse ?></h6>
+                                </p>
+                                <h6>Data de lançamento: <?= $linha->lancamento ?></h6>
+                                <h6>Média das avaliações: Não avaliado</h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card-footer">
-                <a href="conteudo.php?id=<?=$linha->id?>" class="btn btn-outline-primary">Ir para a página do conteúdo</a>
+                    <div class="card-footer" style="margin-left:1em">
+                        <a href="conteudo.php?id=<?= $linha->id ?>" class="btn btn-outline-primary">Ir para a página do conteúdo</a>
+                    </div>
                 </div>
             </div>
         <?php
