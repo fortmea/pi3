@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="resources/css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="resources/css/style.css" rel="stylesheet">
     <title>Filmes - Moview</title>
 </head>
 
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer" style="margin-left:1em">
+                    <div class="card-footer" style="margin-top:1em">
                         <a href="conteudo.php?id=<?= $linha->id ?>" class="btn btn-outline-primary">Ir para a página do conteúdo</a>
                     </div>
                 </div>

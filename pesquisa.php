@@ -1,3 +1,8 @@
+<?php
+if(!isset($_GET["k"])){
+    header("Location: lista.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="resources/css/style.css" rel="stylesheet">
-    <title>Lista - Moview</title>
+    <title>Pesquisando por "<?=$_GET["k"]?>"</title>
 </head>
 
 <body class="bg-dark text-light">
@@ -17,7 +22,9 @@
     <div class="container-fluid card-lista vertical">
         <?php
         require_once("config.php");
-        $queryfilme = 'SELECT * FROM `filme`';
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        $termo_pesquisa = $_GET['k'];
+        $queryfilme = "SELECT * FROM `filme` where `filme`.`nome` like '$termo_pesquisa%'";
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
         while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) { ?>

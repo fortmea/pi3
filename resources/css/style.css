@@ -1,19 +1,24 @@
-.logo-nav{
+.logo-nav {
     max-width: 5em;
 }
-.centralizado{
+
+.centralizado {
     margin-left: auto;
     margin-right: auto;
 }
-.vertical{
+
+.vertical {
     margin-top: 1em;
 }
-.card-lista{
+
+.card-lista {
     max-width: 80em;
 }
-.foto{
+
+.foto {
     max-width: 25em;
 }
+
 .img-thumbnail {
     padding: .25rem;
     background-color: #fff;
@@ -22,4 +27,11 @@
     width: 100%;
     /* max-width: 100%; */
     height: auto;
+}
+
+body {
+    background-color: #212529;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #0D6EFD, #212529), repeating-radial-gradient(circle at center center, #0D6EFD, #0D6EFD, 16px, transparent 32px, transparent 16px);
+    background-blend-mode: multiply;
 }
