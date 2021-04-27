@@ -32,7 +32,7 @@ require_once("config.php");
                 <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src=<?= $linha->imagem ?>>
+                            <img src='<?= $linha->imagem ?>'>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
