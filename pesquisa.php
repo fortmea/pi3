@@ -28,7 +28,6 @@ if (!isset($_GET["k"])) {
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
         $conta = 0;
-
         while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) {
             $conta++;
         ?>

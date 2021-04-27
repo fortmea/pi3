@@ -20,7 +20,10 @@
         $queryfilme = 'SELECT * FROM `filme` where `tipo` = 0';
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
-        while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) { ?>
+        $conta = 0;
+        while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) {
+            $conta++;
+        ?>
             <div class="card bg-dark border-primary mb-3">
 
                 <div class="card-body bg-dark">
@@ -48,7 +51,13 @@
                 </div>
             </div>
         <?php
-        }
+            }
+            if ($conta == 0) {
+                ?>
+                    <div class="alert alert-warning">
+                        Nenhuma resposta encontrada, tente outro termo.
+                    </div>
+        <?php }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
