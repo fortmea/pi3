@@ -3,7 +3,6 @@ require_once("config.php");
 $metodo = $_SERVER["REQUEST_METHOD"];
 if ($metodo == "POST") {
     if (!isset($_POST["imagem"])) {
-        echo ("uai");
         if ($_FILES["imagem"]["error"] > 0) {
             echo "Error: " . $_FILES["imagem"]["error"] . "<br>";
             exit();
@@ -13,10 +12,12 @@ if ($metodo == "POST") {
             $lancamento = $_POST['lancamento'];
             $genero = $_POST['genero'];
             $tipofilme = $_POST['tipo'];
-            $bin_string = file_get_contents($_FILES["imagem"]["name"]);
+            move_uploaded_file($_FILES["imagem"]["tmp_name"],"uploads/".$_FILES["imagem"]["name"]);
+            $bin_string = file_get_contents("uploads/".$_FILES["imagem"]["name"]);
             $hex_string = base64_encode($bin_string);
             $tipo = $_FILES["imagem"]["type"];
             $base64 = "data:$tipo;base64,$hex_string";
+            unlink("uploads/".$_FILES["imagem"]["name"]);
             $query = 'INSERT INTO `filme`(`nome`,`sinopse`,`lancamento`,`genero`,`imagem`,`tipo`) VALUES(?, ?, ?, ?, ?, ?)';
             $exec = $conn->prepare($query);
             $exec->bindParam(1, $nome);
