@@ -64,6 +64,19 @@ require_once("config.php");
                                 }
                                 ?>
                             </div>
+                            <div>
+                                <h5>Atores:</h5>
+                                <?php
+                                $queryestudios = "SELECT * from `pessoa` p INNER JOIN `filme_pessoa` fp ON(fp.pessoa = p.id)  where fp.filme = $recebeid";
+                                $exeqe = $conn->prepare($queryestudios);
+                                $exeqe->execute();
+                                while ($linhaest = $exeqe->fetch(PDO::FETCH_OBJ)) {
+                                ?>
+                                    <p class="card-text"><?= $linhaest->nome ?></p>
+                                <?php
+                                }
+                                ?>
+                            </div>
                         </div>
                         <div class="card-footer bg-dark vertical">
                             <h2>Avaliações:</h2>

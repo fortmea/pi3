@@ -24,7 +24,7 @@ if (!isset($_GET["k"])) {
         require_once("config.php");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $termo_pesquisa = $_GET['k'];
-        $queryfilme = "SELECT * FROM `filme` where `filme`.`nome` like '$termo_pesquisa%'";
+        $queryfilme = "SELECT * FROM `filme` where `filme`.`nome` like '%$termo_pesquisa%'";
         $execqg = $conn->prepare($queryfilme);
         $execqg->execute();
         $conta = 0;
