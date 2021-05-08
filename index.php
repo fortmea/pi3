@@ -48,8 +48,13 @@ require("nav.php");
 <div class="card centralizado border-primary" id="sobre" style="max-width:100rem;margin-top:1em">
   <div class="card-body bg-dark ">
     <h5 class="card-title">Sobre o projeto moview</h5>
-    <h6 class="card-subtitle mb-2 text-muted">O projeto moview surgiu porque o professor pediu</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h6 class="card-subtitle mb-2 text-muted">O projeto moview surgiu com o objetivo de diminuir as horas perdidas na busca de filmes e séries
+    . Além desse propósito também temos o intuito de criar uma comunidade que queira compartilhar suas resenhas dos filmes assistidos
+   e com o diferencial que nosso site possui, pagaremos a essas pessoas de acordo com o calculo que nosso script fizer.
+    </h6>
+    <p class="card-text text-muted" >Integrantes do projeto:
+    <br>Arthur Augusto Stati Possetti, João Walter Amadeu, Rodrigo Tavares Franco Junior, Wesley Fantineli.
+</p>
   </div>
 </div> 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
