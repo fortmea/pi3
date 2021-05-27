@@ -35,16 +35,17 @@ require("nav.php");
 
     </div>
   </div>
-  <button class="carousel-control-prev bg-secondary" type="button" data-bs-target="#carrossel" data-bs-slide="prev">
+  <button class="carousel-control-prev " type="button" data-bs-target="#carrossel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Anterior</span>
   </button>
-  <button class="carousel-control-next bg-secondary" type="button" data-bs-target="#carrossel" data-bs-slide="next">
+  <button class="carousel-control-next " type="button" data-bs-target="#carrossel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span> 
     <span class="visually-hidden">Próximo</span>
   </button>
 </div>
 </div>
+
 <div class="card centralizado border-primary" id="sobre" style="max-width:100rem;margin-top:1em">
   <div class="card-body bg-dark ">
     <h5 class="card-title">Sobre o projeto moview</h5>
