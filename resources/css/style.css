@@ -49,3 +49,17 @@ body {
 .link-light{
     color:#fff;
 }
+.carousel slider{
+    height: 10em;
+}
+
+.mb-2 a {
+    color: white; 
+    text-decoration: none;
+}
+
+.d-block{
+
+    height: 35em;
+    
+}

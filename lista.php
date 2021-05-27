@@ -51,7 +51,6 @@
                                 $contaav = 0;
                                 while ($linhap = $execqp->fetch(PDO::FETCH_OBJ)) {
                                     $contaav++;
-                                    echo($contaav);
                                     if ($contaav == 1) {
                                 ?>
 
