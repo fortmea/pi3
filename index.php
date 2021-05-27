@@ -58,6 +58,37 @@ require("nav.php");
 </p>
   </div>
 </div> 
+
+<footer class="bd-footer py-5 mt-5 bg-dark ">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-3 mb-3">
+        <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="index.php" aria-label="Bootstrap">
+        <img class="logo-nav" src="resources/Moview_1.png">
+        </a>
+        <ul class="list-unstyled small text-muted">
+          <li class="mb-2">Desenvolvido na aula de Projeto integrador</li>
+          <li class="mb-2">Version 1.0.</li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+        <h5>Catálogo</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2" ><a href="https://pi3.joaowalteramadeu.me/filmes.php">Filmes</a></li>
+          <li class="mb-2"><a href="https://pi3.joaowalteramadeu.me/series.php">Séries</a></li>
+          <li class="mb-2"><a href="https://pi3.joaowalteramadeu.me/lista.php">Lista Completa</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2 mb-3">
+        <h5>GitHub</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="https://github.com/fortmea/pi3/">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
