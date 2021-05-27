@@ -74,15 +74,15 @@ require("nav.php");
       <div class="col-6 col-lg-2 offset-lg-1 mb-3">
         <h5>Catálogo</h5>
         <ul class="list-unstyled">
-          <li class="mb-2" ><a href="https://pi3.joaowalteramadeu.me/filmes.php">Filmes</a></li>
-          <li class="mb-2"><a href="https://pi3.joaowalteramadeu.me/series.php">Séries</a></li>
-          <li class="mb-2"><a href="https://pi3.joaowalteramadeu.me/lista.php">Lista Completa</a></li>
+          <li class="mb-2" ><a class="link-light" href="https://pi3.joaowalteramadeu.me/filmes.php">Filmes</a></li>
+          <li class="mb-2"><a class="link-light" href="https://pi3.joaowalteramadeu.me/series.php">Séries</a></li>
+          <li class="mb-2"><a class="link-light" href="https://pi3.joaowalteramadeu.me/lista.php">Lista Completa</a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-2 mb-3">
-        <h5>GitHub</h5>
+        <h5>Código-Fonte</h5>
         <ul class="list-unstyled">
-          <li class="mb-2"><a href="https://github.com/fortmea/pi3/">GitHub</a></li>
+          <li class="mb-2"><a class="link-light" href="https://github.com/fortmea/pi3/">GitHub</a></li>
         </ul>
       </div>
     </div>

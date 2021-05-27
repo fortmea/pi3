@@ -46,20 +46,14 @@ body {
 		background-position: 0% 50%;
 	}
 }
-.link-light{
-    color:#fff;
-}
 .carousel slider{
     height: 10em;
 }
-
-.mb-2 a {
-    color: white; 
-    text-decoration: none;
-}
-
 .d-block{
 
     height: 35em;
     
+}
+.link-light{
+    text-decoration: none;
 }
