@@ -40,10 +40,10 @@ require_once("config.php");
                             <img class="img-thumbnail foto" src='<?= $linha->imagem ?>'>
                         </div>
                         <div class="col-md-8">
-                            <p class="card-text"> <?= $linha->si ?></p>
-                            <p class="card-text">Data de Lançamento: <?= $linha->lan ?></p>
-                            <p class="card-text">Gênero: <?= $linha->gen ?></p>
-                            <p class="card-text"><?php
+                            <p > <?= $linha->si ?></p>
+                            <p >Data de Lançamento: <?= $linha->lan ?></p>
+                            <p >Gênero: <?= $linha->gen ?></p>
+                            <p ><?php
                                                     if ($linha->ti == 1) {
                                                         echo 'Filme';
                                                     } else {
@@ -59,20 +59,20 @@ require_once("config.php");
                                 $exeqe->execute();
                                 while ($linhaest = $exeqe->fetch(PDO::FETCH_OBJ)) {
                                 ?>
-                                    <p class="card-text"><?= $linhaest->nome ?></p>
+                                    <p><?= $linhaest->nome ?></p>
                                 <?php
                                 }
                                 ?>
                             </div>
                             <div>
-                                <h5>Atores:</h5>
+                                <h5>Atores/Diretores/Escritores:</h5>
                                 <?php
-                                $queryestudios = "SELECT * from `pessoa` p INNER JOIN `filme_pessoa` fp ON(fp.pessoa = p.id)  where fp.filme = $recebeid";
+                                $queryestudios = "SELECT * from `pessoa` p INNER JOIN `filme_pessoa` fp ON(fp.pessoa = p.id) inner join `tipo_pessoa` tp ON(tp.idtipo_pessoa = p.tipo)  where fp.filme = $recebeid";
                                 $exeqe = $conn->prepare($queryestudios);
                                 $exeqe->execute();
                                 while ($linhaest = $exeqe->fetch(PDO::FETCH_OBJ)) {
                                 ?>
-                                    <p class="card-text"><?= $linhaest->nome ?></p>
+                                    <p><?= $linhaest->nome ?> (<?=$linhaest->desc_tipo?>)</p>
                                 <?php
                                 }
                                 ?>
@@ -81,19 +81,18 @@ require_once("config.php");
                         <div class="card-footer bg-dark vertical">
                             <h2>Avaliações:</h2>
                             <?php
-                                $queryresenhas = "SELECT *, u.nome as 'nome_autor' from `resenha` r INNER JOIN `usuario` u ON(r.autor = u.idusuario) where r.filme = $recebeid";
+                                $queryresenhas = "SELECT *, u.nome as 'nome_autor' from `resenha` r INNER JOIN `usuário` u ON(r.autor = u.idusuário) where r.filme = $recebeid";
                                 $exeqre = $conn->prepare($queryresenhas);
                                 $exeqre->execute();
                                 $contare = 0;
                                 while ($linhare = $exeqre->fetch(PDO::FETCH_OBJ)) {
                                     $contare++;
-                                ?><div class="vertical bg-dark bg-gradient" style="padding:1em">
-                                    <p class="card-text"><h5><?= $linhare->titulo ?></h5></p>
-                                    <p class="card-text"><h6><?= $linhare->subtitulo ?></h6></p>
-                                    <p class="card-text"><?= $linhare->conteudo ?></p>
-                                    <p class="card-text">Avaliação: <?= $linhare->pontuacao ?></p>
-                                    <p class="card-text">Data da publicação: <?= $linhare->data_pub ?></p>
-                                    <cite><p class="card-text">Autor: <?= $linhare->nome_autor ?></p></cite>
+                                ?><div class="card vertical mb-3 bg-dark border-primary" style="padding:1em">
+                                    <p ><h5><?= $linhare->titulo ?></h5></p>
+                                    <p ><?= $linhare->conteudo ?></p>
+                                    <p >Avaliação: <?= $linhare->pontuacao ?></p>
+                                    <p >Data da publicação: <?= $linhare->data_pub ?></p>
+                                    <cite><p>Autor: <?= $linhare->nome_autor ?></p></cite>
                                     </div>
                                 <?php
                                 }
@@ -104,6 +103,7 @@ require_once("config.php");
                                         </div>
                                     <?php }
                                     ?>
+                                    <a class="btn mb-3 btn-outline-primary link-light" href="resenha.php?id=<?=$recebeid?>">Adicionar Resenha</a>
                         </div>
                     </div>
                 </div>

@@ -42,13 +42,13 @@ if (!isset($_GET["k"])) {
                             </div>
                             <div class="col-md-8">
                                 <p>
-                                <h1><?= $linha->nome ?></h1>
+                                <a class="stretched-link link-secondary" style="text-decoration:none" href="conteudo.php?id=<?= $linha->id ?>"><h1><?= $linha->nome ?></h1></a>
                                 </p>
                                 <p>
                                 <h6><?= $linha->sinopse ?></h6>
                                 </p>
-                                <h6>Data de lançamento: <?= $linha->lancamento ?></h6>
-                                <h6>Média das avaliações: Não avaliado</h6>
+                                <p class="text-secondary mb-3">Data de lançamento: <span class="text-light"><?= $linha->lancamento ?></span></p>
+                                <h6 class="text-secondary">Média das avaliações: Não avaliado</h6>
                             </div>
                         </div>
                     </div>
