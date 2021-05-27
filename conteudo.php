@@ -78,6 +78,10 @@ require_once("config.php");
                                 ?>
                             </div>
                         </div>
+                        <form method="POST" action="remover_conteudo.php">
+                            <input type="hidden" value="<?=$recebeid?>" name="id">
+                            <input type="submit" value="Excluir" class="btn btn-outline-danger" >
+                        </form>
                         <div class="card-footer bg-dark vertical">
                             <h2>Avaliações:</h2>
                             <?php
@@ -93,6 +97,11 @@ require_once("config.php");
                                     <p >Avaliação: <?= $linhare->pontuacao ?></p>
                                     <p >Data da publicação: <?= $linhare->data_pub ?></p>
                                     <cite><p>Autor: <?= $linhare->nome_autor ?></p></cite>
+                                    <form method="POST" action="remover_resenha.php">
+                                        <input type="hidden" value="<?=$linhare->idresenha?>" name="id">
+                                        <input type="hidden" value="<?=$recebeid?>" name="conteudo">
+                                        <input type="submit" value="Remover resenha" class="btn btn-outline-danger">
+                                    </form>
                                     </div>
                                 <?php
                                 }

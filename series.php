@@ -22,6 +22,9 @@
         $execqg->execute();
         $conta = 0;
         while ($linha = $execqg->fetch(PDO::FETCH_OBJ)) {
+            $querypontos = "SELECT SUM(r.pontuacao)/COUNT(r.filme) AS pontos FROM `resenha` r where r.filme = $linha->id";
+            $execqp = $conn->prepare($querypontos);
+            $execqp->execute();
             $conta++;
         ?>
             <div class="card bg-dark border-primary mb-3">
@@ -35,20 +38,36 @@
                             </div>
                             <div class="col-md-8">
                                 <p>
-                                <a class="stretched-link link-light" style="text-decoration:none" href="conteudo.php?id=<?= $linha->id ?>"><h1><?= $linha->nome ?></h1></a>
+                                    <a class="stretched-link link-secondary" style="text-decoration:none" href="conteudo.php?id=<?= $linha->id ?>">
+                                        <h1><?= $linha->nome ?></h1>
+                                    </a>
                                 </p>
                                 <p>
                                 <h6><?= $linha->sinopse ?></h6>
                                 </p>
                                 <p class="text-secondary mb-3">Data de lançamento: <span class="text-light"><?= $linha->lancamento ?></span></p>
-                                <h6 class="text-secondary">Média das avaliações: Não avaliado</h6>
+                                <?php
+                                $contaav = 0;
+                                while ($linhap = $execqp->fetch(PDO::FETCH_OBJ)) {
+                                    $contaav++;
+                                    if ($contaav == 1) {
+                                ?>
+
+                                        <h6 class="text-secondary">Média das avaliações: <span class="text-light"><?= number_format((float)$linhap->pontos, 2, '.', ''); ?></span></h6>
+                                    <?php }
+                                    else if($contaav == 0) {
+                                    ?>
+                                        <h6 class="text-secondary">Média das avaliações: ainda não avaliado</h6>
+                                <?php
+                                    }
+                                } ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer" style="margin-top:1em">
-                        <a href="conteudo.php?id=<?= $linha->id ?>" class="btn btn-outline-primary">Ir para a página do conteúdo</a>
-                    </div>
+                    <a href="conteudo.php?id=<?= $linha->id ?>" class="btn btn-outline-primary">Ir para a página do conteúdo</a>
+                </div>
             </div>
         <?php
         }
